@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2019 at 05:09 PM
+-- Generation Time: Jun 21, 2019 at 12:42 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -100,7 +100,9 @@ CREATE TABLE `users` (
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `fk_product_category` (`product_category`),
+  ADD KEY `fk_vendor_id` (`vendor_id`);
 
 --
 -- Indexes for table `product_categories`
@@ -112,19 +114,48 @@ ALTER TABLE `product_categories`
 -- Indexes for table `product_ratings`
 --
 ALTER TABLE `product_ratings`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `fk_product_vendor` (`vendor_id`);
 
 --
 -- Indexes for table `purchases`
 --
 ALTER TABLE `purchases`
-  ADD PRIMARY KEY (`transaction_id`);
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD KEY `fk_user` (`vendor_id`),
+  ADD KEY `fk_purchases_product_id` (`product_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `fk_product_category` FOREIGN KEY (`product_category`) REFERENCES `product_categories` (`category_id`),
+  ADD CONSTRAINT `fk_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `product_ratings`
+--
+ALTER TABLE `product_ratings`
+  ADD CONSTRAINT `fk_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `fk_product_vendor` FOREIGN KEY (`vendor_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD CONSTRAINT `fk_purchases_product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `fk_purchases_vendor` FOREIGN KEY (`vendor_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`vendor_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

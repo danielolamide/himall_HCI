@@ -1,0 +1,33 @@
+.star {
+  font-size: 40px;
+}
+.star:hover {
+  cursor: pointer;
+}
+.hovered {
+  color: gold;
+}
+.checked {
+  color: gold;
+}
+.review-container {
+  padding: 40px 0;
+}
+.review-header {
+  margin-bottom: 50px;
+}
+@media only screen and (min-width: 300px) {
+  .d-sm-none {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .d-lg-block {
+    display: block !important;
+  }
+  .rating-column{
+    padding : 4% 0;
+  }
+
+}
+

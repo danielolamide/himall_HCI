@@ -51,10 +51,9 @@
                 <li class="has-children active">
                   <a href="#">Categories</a>
                   <ul class="dropdown">
-                    <!-- <li><a href="#">Men</a></li>
+                    <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
-                    <li><a href="#">Children</a></li> -->
-                    <? include './func/getCategories.php'?>
+                    <li><a href="#">Children</a></li>
                   </ul>
                 </li>
                 

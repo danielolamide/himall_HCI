@@ -68,7 +68,7 @@ $Password = $con->real_escape_string($_REQUEST['password']);
 		
       $user_type=$row["user_type"];
        if($user_type=="cutomer"){
-	    header("location: cutomer\index.html");
+	    header("location: cutomer\index.php");
 		}
 		else{
 			$_SESSION["non-authorization"]="You are not authorized to go";

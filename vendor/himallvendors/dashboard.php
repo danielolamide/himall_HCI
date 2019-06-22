@@ -80,7 +80,7 @@ $res = $con->query($sql) ;
         <div class="d-flex align-items-center justify-content-between">
           <div class="logo">
             <div class="site-logo">
-              <a href="index.html" class="js-logo-clone">
+              <a href="index.php" class="js-logo-clone">
                 <img src="https://www.himall.africa/logo.png" alt="logo" loading="lazy">
               </a>
             </div>
@@ -124,7 +124,7 @@ $res = $con->query($sql) ;
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Login Screens:</h6>
           <a class="dropdown-item" href="loginform.php">Login</a>
-          <a class="dropdown-item" href="registration/index.html">Register</a>
+          <a class="dropdown-item" href="registration/index.php">Register</a>
         
       </li>
       <li class="nav-item">

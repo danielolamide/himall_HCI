@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Himall</title>
+    <title>HIMALL</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -40,7 +40,7 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="logo">
             <div class="site-logo">
-              <a href="index.html" class="js-logo-clone">
+              <a href="index.php" class="js-logo-clone">
                 <img src="https://www.himall.africa/logo.png" alt="logo" loading="lazy">
               </a>
             </div>
@@ -51,9 +51,10 @@
                 <li class="has-children active">
                   <a href="#">Categories</a>
                   <ul class="dropdown">
-                    <li><a href="#">Men</a></li>
+                    <!-- <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
-                    <li><a href="#">Children</a></li>
+                    <li><a href="#">Children</a></li> -->
+                    <? include './func/getCategories.php'?>
                   </ul>
                 </li>
                 

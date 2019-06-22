@@ -1,3 +1,4 @@
+<?include './DBConnection.php'?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,9 +52,7 @@
                 <li class="has-children active">
                   <a href="index.php">Categories</a>
                   <ul class="dropdown">
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Children</a></li>
+                  <?php include './getCategories.php'?>
                   </ul>
                 </li>
                 
@@ -187,9 +186,10 @@
             <div class="border p-4 mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
               <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
+<!--                 <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
                 <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li> -->
+                <?php include './getCategories.php'?>
               </ul>
             </div>
 

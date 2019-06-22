@@ -30,8 +30,9 @@
       <div class="search-wrap">
         <div class="container">
           <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search products...">
+          <form action="productSearch.php" method="post">
+            <input name = 'search' type="text" class="form-control" placeholder="Search products..." required>
+            <button type='input'>Search</button>
           </form>  
         </div>
       </div>

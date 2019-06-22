@@ -1,3 +1,4 @@
+<?include './DBConnection.php';?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,70 +102,7 @@
     <div class="products-wrap border-top-0">
       <div class="container-fluid">
         <div class="row no-gutters products">
-          <div class="col-6 col-md-6 col-lg-4">
-            <a href="#" class="item">
-              <img src="images/product_1.jpg" alt="Image" class="img-fluid">
-              <div class="item-info">
-                <h3>The Shoe</h3>
-                <span class="collection d-block">Summer Collection</span>
-                <strong class="price">$9.50</strong>
-              </div>
-            </a>
-          </div>
-          <div class="col-6 col-md-6 col-lg-4">
-            <a href="#" class="item">
-              <span class="tag">Sale</span>
-              <img src="images/product_2.jpg" alt="Image" class="img-fluid">
-              <div class="item-info">
-                <h3>Marc Jacobs Bag</h3>
-                <span class="collection d-block">Summer Collection</span>
-                <strong class="price">$9.50 <del>$30.00</del></strong>
-              </div>
-            </a>
-          </div>
-          <div class="col-6 col-md-6 col-lg-4">
-            <a href="#" class="item">
-              <img src="images/product_3.jpg" alt="Image" class="img-fluid">
-              <div class="item-info">
-                <h3>The  Belt</h3>
-                <span class="collection d-block">Summer Collection</span>
-                <strong class="price">$9.50</strong>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-6 col-md-6 col-lg-4">
-            <a href="#" class="item">
-              <img src="images/product_1.jpg" alt="Image" class="img-fluid">
-              <div class="item-info">
-                <h3>The Shoe</h3>
-                <span class="collection d-block">Summer Collection</span>
-                <strong class="price">$9.50</strong>
-              </div>
-            </a>
-          </div>
-          <div class="col-6 col-md-6 col-lg-4">
-            <a href="#" class="item">
-              <span class="tag">Sale</span>
-              <img src="images/product_2.jpg" alt="Image" class="img-fluid">
-              <div class="item-info">
-                <h3>Marc Jacobs Bag</h3>
-                <span class="collection d-block">Summer Collection</span>
-                <strong class="price">$9.50 <del>$30.00</del></strong>
-              </div>
-            </a>
-          </div>
-          <div class="col-6 col-md-6 col-lg-4">
-            <a href="#" class="item">
-              <img src="images/product_3.jpg" alt="Image" class="img-fluid">
-              <div class="item-info">
-                <h3>The  Belt</h3>
-                <span class="collection d-block">Summer Collection</span>
-                <strong class="price">$9.50</strong>
-              </div>
-            </a>
-          </div>
-
+            <?php include './homeProducts.php' ?>
         </div>
       </div>
     </div>
@@ -186,92 +124,7 @@
       </div>
     </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="title-section text-center col-12">
-            <h2 class="text-uppercase">Collections</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 block-3 products-wrap">
-            <div class="nonloop-block-3 owl-carousel">
-              
-              <div class="product">
-                <a href="#" class="item">
-                  <img src="images/product_1.jpg" alt="Image" class="img-fluid">
-                  <div class="item-info">
-                    <h3>The Shoe</h3>
-                    <span class="collection d-block">Summer Collection</span>
-                    <strong class="price">$9.50</strong>
-                  </div>
-                </a>
-              </div>
-
-              <div class="product">
-                <a href="#" class="item">
-                  <span class="tag">Sale</span>
-                  <img src="images/product_2.jpg" alt="Image" class="img-fluid">
-                  <div class="item-info">
-                    <h3>Marc Jacobs Bag</h3>
-                    <span class="collection d-block">Summer Collection</span>
-                    <strong class="price">$9.50 <del>$30.00</del></strong>
-                  </div>
-                </a>
-              </div>
-
-              <div class="product">
-                <a href="#" class="item">
-                  <img src="images/product_3.jpg" alt="Image" class="img-fluid">
-                  <div class="item-info">
-                    <h3>The  Belt</h3>
-                    <span class="collection d-block">Summer Collection</span>
-                    <strong class="price">$9.50</strong>
-                  </div>
-                </a>
-              </div>
-
-              <div class="product">
-                <a href="#" class="item">
-                  <img src="images/product_1.jpg" alt="Image" class="img-fluid">
-                  <div class="item-info">
-                    <h3>The Shoe</h3>
-                    <span class="collection d-block">Summer Collection</span>
-                    <strong class="price">$9.50</strong>
-                  </div>
-                </a>
-              </div>
-
-              <div class="product">
-                <a href="#" class="item">
-                  <span class="tag">Sale</span>
-                  <img src="images/product_2.jpg" alt="Image" class="img-fluid">
-                  <div class="item-info">
-                    <h3>Marc Jacobs Bag</h3>
-                    <span class="collection d-block">Summer Collection</span>
-                    <strong class="price">$9.50 <del>$30.00</del></strong>
-                  </div>
-                </a>
-              </div>
-
-              <div class="product">
-                <a href="#" class="item">
-                  <img src="images/product_3.jpg" alt="Image" class="img-fluid">
-                  <div class="item-info">
-                    <h3>The  Belt</h3>
-                    <span class="collection d-block">Summer Collection</span>
-                    <strong class="price">$9.50</strong>
-                  </div>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+  
     <div class="site-blocks-cover inner-page py-5"  data-aos="fade">
       <div class="container">
         <div class="row align-items-center">
@@ -307,7 +160,7 @@
               <div class="col-md-6 col-lg-4">
                 <ul class="list-unstyled">
                   <li><a href="#">Sell online</a></li>
-                  <li><a href="#">Shopping cart</a></li>
+                  <li><a href="./cart.html">Shopping cart</a></li>
                 </ul>
               </div>
             </div>

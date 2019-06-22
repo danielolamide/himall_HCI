@@ -1,7 +1,40 @@
+<?php
+  if(isset($_GET['product_id'])){
+      include './DBConnection.php';
+      $connection = new DBConnection;
+      $product_id = $_GET['product_id'];
+      $product_sql = "SELECT * FROM products WHERE product_id='$product_id'";
+      $product_res = mysqli_query($connection->getConnection(),$product_sql);
+      if($product_res->num_rows > 0){
+          while($row = $product_res->fetch_assoc()){
+            $product_name = $row['product_name'];
+            $product_price = $row['product_price'];
+            $product_description = $row['product_description'];
+            $product_image = $row['product_image'];
+            $product_vendor = $row['vendor_id'];
+          }
+      }
+      $rating_sql = "SELECT avg_rating FROM product_ratings WHERE product_id='$product_id'";
+      $rating_res = mysqli_query($connection->getConnection(),$rating_sql);
+      if($rating_res->num_rows >0){
+        while($row= $rating_res->fetch_assoc()){
+          $avg_rating = $row['avg_rating'];
+        }
+      }
+      else{
+        $avg_rating = "Unrated";
+      }
+
+
+  }
+  else{
+    echo "You're not the man";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>Himall</title>
+      <title>HIMALL</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       
@@ -56,9 +89,7 @@
                 <li class="has-children active">
                   <a href="index.php">Categories</a>
                   <ul class="dropdown">
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Children</a></li>
+                  <?php include './getCategories.php'?> 
                   </ul>
                 </li>
                 
@@ -83,7 +114,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.html">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">The Shoe</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.html">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?echo $product_name?></strong></div>
         </div>
       </div>
     </div>  
@@ -93,14 +124,14 @@
         <div class="row">
           <div class="col-md-6">
             <div class="border">
-              <img src="images/product_1.jpg" alt="Image" class="img-fluid">
+              <img src="<?echo $product_image?>" alt="Image" class="img-fluid">
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="text-black">The Shoe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.</p>
-            <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
-            <p><strong class="text-primary h4">$50.00</strong></p>
+            <h2 class="text-black"><?echo $product_name?></h2>
+            <p><?echo $product_description?></p>
+            <p class="mb-4"><?echo $product_vendor?></p>
+            <p><strong class="text-primary h4">KSH <?echo $product_price?></strong></p>
             
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
@@ -145,7 +176,7 @@
                     
                     </ul>
                 </div> -->
-                <h3>4</h3>
+                <h3><?echo $avg_rating?></h3>
           </div>
         </div>
         <div class="row">

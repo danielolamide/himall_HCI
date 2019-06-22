@@ -1,5 +1,4 @@
 <?php
-    include './DBConnection.php';
     $mysqli = new DBConnection;
     $res = mysqli_query($mysqli->conn, "SELECT * FROM product_categories");
 
@@ -7,5 +6,6 @@
         while($row = $res->fetch_assoc()){
            echo '<li><a href="#">'.$row['category_name'].'</a></li>';
         }
+        $mysqli->closeConnection();
     }
 ?>

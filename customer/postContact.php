@@ -1,5 +1,5 @@
 <?  
-    require './DBConnection.php';
+    include './DBConnection.php';
     $connection = new DBConnection;
     if(isset($_POST['submit-message'])){
         $fName = $_POST['c_fname'];
@@ -11,7 +11,7 @@
         $sql = "INSERT INTO contact(first_name,last_name,email,subject,message) VALUES('".$fName."','".$lName."','".$email."','".$subject."','".$message."')";
         $res = mysqli_query($connection->getConnection(),$sql);
 
-        
+        $connection->closeConnection();
     }
 
 ?>

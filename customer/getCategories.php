@@ -1,5 +1,5 @@
 <?php
-    include './DBConnection.php';
+    include './DBConnection .php';
     $mysqli = new DBConnection;
     $res = mysqli_query($mysqli->conn, "SELECT * FROM product_categories");
 

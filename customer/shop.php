@@ -1,8 +1,8 @@
-<?include './DBConnection.php'?>
+<?include './DBConnection.php';?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Himall</title>
+    <title>HIMALL</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -56,15 +56,15 @@
                   </ul>
                 </li>
                 
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
               </ul>
             </nav>
           </div>
           <div class="icons">
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
             <a href="#" class="icons-btn d-inline-block"><span class="icomoon icon-user"></span></<a>
-            <a href="cart.html" class="icons-btn d-inline-block bag">
+            <a href="cart.php" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>
@@ -90,77 +90,87 @@
 
             <div class="row align">
               <div class="col-md-12 mb-5">
-                <div class="float-md-left"><h2 class="text-black h5">Shop All</h2></div>
+                <div class="float-md-left">
+                  <h2 class="text-black h5">
+                    <?php
+                      if(!empty($category_name)){
+                        echo "Shop ". $category_name ;
+                      }
+                      else{
+                        echo "Shop";
+                      }
+                    ?>
+                  </h2>
+                </div>
               </div>
             </div>
             <div class="row mb-5">
               <div class="products-wrap border-top-0">
   <div class="container-fluid">
     <div class="row no-gutters products">
-      <div class="col-6 col-md-6 col-lg-6 border-top">
-        <a href="shop-single.html" class="item">
-          <img src="images/product_1.jpg" alt="Image" class="img-fluid">
-          <div class="item-info">
-            <h3>The Shoe</h3>
-            <span class="collection d-block">Summer Collection</span>
-            <strong class="price">$9.50</strong>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-6 col-lg-6 border-top">
-        <a href="shop-single.html" class="item">
-          <span class="tag">Sale</span>
-          <img src="images/product_2.jpg" alt="Image" class="img-fluid">
-          <div class="item-info">
-            <h3>Marc Jacobs Bag</h3>
-            <span class="collection d-block">Summer Collection</span>
-            <strong class="price">$9.50 <del>$30.00</del></strong>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-6 col-lg-6">
-        <a href="shop-single.html" class="item">
-          <img src="images/product_3.jpg" alt="Image" class="img-fluid">
-          <div class="item-info">
-            <h3>The  Belt</h3>
-            <span class="collection d-block">Summer Collection</span>
-            <strong class="price">$9.50</strong>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-6 col-md-6 col-lg-6">
-        <a href="shop-single.html" class="item">
-          <img src="images/product_1.jpg" alt="Image" class="img-fluid">
-          <div class="item-info">
-            <h3>The Shoe</h3>
-            <span class="collection d-block">Summer Collection</span>
-            <strong class="price">$9.50</strong>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-6 col-lg-6">
-        <a href="shop-single.html" class="item">
-          <span class="tag">Sale</span>
-          <img src="images/product_2.jpg" alt="Image" class="img-fluid">
-          <div class="item-info">
-            <h3>Marc Jacobs Bag</h3>
-            <span class="collection d-block">Summer Collection</span>
-            <strong class="price">$9.50 <del>$30.00</del></strong>
-          </div>
-        </a>
-      </div>
-      <div class="col-6 col-md-6 col-lg-6">
-        <a href="shop-single.html" class="item">
-          <img src="images/product_3.jpg" alt="Image" class="img-fluid">
-          <div class="item-info">
-            <h3>The  Belt</h3>
-            <span class="collection d-block">Summer Collection</span>
-            <strong class="price">$9.50</strong>
-          </div>
-        </a>
-      </div>
-
+        <?php 
+            $connection = new DBConnection;
+            if(isset($_GET['category_id'])){
+              $category_id = $_GET['category_id'];
+              $select_category_name = "SELECT category_name FROM product_categories WHERE category_id='$category_id'";
+              $scnRes = mysqli_query($connection->getConnection(),$select_category_name);
+              while($row = $scnRes->fetch_assoc()){
+                $category_name = $row['category_name'];
+              }
+              $select_category_products = "SELECT * FROM products WHERE product_category='$category_id' LIMIT 6";
+              $scpRes = mysqli_query($connection->getConnection(),$select_category_products);
+              if ($scpRes->num_rows > 0){
+                while($row = $scpRes->fetch_assoc()){
+                    $product_name = $row['product_name'];
+                    $poduct_description = $row['product_description'];
+                    $product_price = $row['product_price'];
+                    $product_image = $row['product_image'];
+                    $product_vendor = $row['vendor_id'];
+                    $product_id = $row['product_id'];
+                    echo '<div class="col-6 col-md-6 col-lg-6 border-top">
+                    <a href="./shop-single.php?product_id='.$row['product_id'].'" class="item">
+                    <img src="'.$row['product_image'].'" alt="Product Image" class="img-fluid">
+                    <div class="item-info">
+                        <h3>'.$row['product_name'].'</h3>
+                        <span class="collection d-block">'.$row['product_description'].'</span>
+                        <strong class="price">Ksh '.$row['product_price'].'</strong>
+                    </div>
+                    </a>
+                    </div>';
+                }
+              }
+              else{
+                echo '<span>No products found in this category</span>';
+              }
+            }
+            else{
+              $select_products= "SELECT * FROM products LIMIT 6";
+              $spRes = mysqli_query($connection->getConnection(),$select_products);
+              if($spRes->num_rows > 0){
+                while($row = $spRes->fetch_assoc()){
+                  $product_name = $row['product_name'];
+                  $poduct_description = $row['product_description'];
+                  $product_price = $row['product_price'];
+                  $product_image = $row['product_image'];
+                  $product_vendor = $row['vendor_id'];
+                  $product_id = $row['product_id'];
+                  echo '<div class="col-6 col-md-6 col-lg-6 border-top">
+                  <a href="./shop-single.php?product_id='.$row['product_id'].'" class="item">
+                  <img src="'.$row['product_image'].'" alt="Product Image" class="img-fluid">
+                  <div class="item-info">
+                      <h3>'.$row['product_name'].'</h3>
+                      <span class="collection d-block">'.$row['product_description'].'</span>
+                      <strong class="price">Ksh '.$row['product_price'].'</strong>
+                  </div>
+                  </a>
+                  </div>';
+                }
+              }
+              else{
+                echo '<span>No products have been added</span>';
+              }
+            }
+        ?>
     </div>
   </div>
 </div>

@@ -93,15 +93,15 @@
                   </ul>
                 </li>
                 
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
               </ul>
             </nav>
           </div>
           <div class="icons">
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
             <a href="#" class="icons-btn d-inline-block"><span class="icomoon icon-user"></span></a>
-            <a href="cart.html" class="icons-btn d-inline-block bag">
+            <a href="cart.php" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>
@@ -114,7 +114,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.html">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?echo $product_name?></strong></div>
+          <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.php">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?echo $product_name?></strong></div>
         </div>
       </div>
     </div>  
@@ -145,7 +145,7 @@
             </div>
 
             </div>
-            <p><a href="cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+            <p><a href="cart.php" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
 
           </div>
         </div>
@@ -184,7 +184,7 @@
             <h4 class ='text-black'>Rate</h4>
           </div>
         </div>
-        <form class= action="">
+        <form method='post' onsubmit='setRatingHandler(this)' action="">
           <div class="row">
             <div class="col-12">
               <div class="container">
@@ -199,13 +199,13 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
               <div class="col-12">
                 <div class = 'float-left'>
-                    <button type = 'submit' class = 'btn btn-primary'>Rate</button>
+                    <button type = 'submit' class = 'btn btn-primary' onclick= 'setRatingHandler(e)'>Rate</button>
                 </div>
               </div>
-            </div>
+            </div> -->
       </form>
       </div>
     </div>

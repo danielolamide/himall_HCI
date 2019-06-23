@@ -12,6 +12,16 @@ function setRatingHandler(e) {
     stars[x].classList.add("checked");
   }
   console.log(rating, "starzz rating");
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange = function()
+  {
+      if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+      {
+          alert(xmlHttp.responseText);
+      }
+  }
+  xmlHttp.open("post", "postRating.php"); 
+  xmlHttp.send(rating); 
 }
 
 function resetRating(no_of_stars, stars) {

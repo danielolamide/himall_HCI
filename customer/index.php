@@ -1,4 +1,6 @@
-<?include './DBConnection.php';?>
+<?php
+  include './DBConnection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,7 +33,7 @@
       <div class="search-wrap">
         <div class="container">
           <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
+          <form action="#" method="post" id = 'search-form'>
             <input type="text" class="form-control" placeholder="Search for products...">
           </form>  
         </div>
@@ -59,15 +61,15 @@
                   </ul>
                 </li>
                 
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
               </ul>
             </nav>
           </div>
           <div class="icons">
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
             <a href="#" class="icons-btn d-inline-block"><span class="icomoon icon-user"></span></a>
-            <a href="cart.html" class="icons-btn d-inline-block bag">
+            <a href="cart.php" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>
@@ -86,7 +88,7 @@
               <h1 class="mb-2">Madewell</h1>
               <h4>New Arrivals</h4>
               <div class="price mt-3 mb-5"><strong>Ksh 3,499</strong> <del>Ksh 6,999</del></div>
-              <p><a href="#" class="btn btn-outline-primary rounded-0">Shop Now</a></p>
+              <p><a href="shop.php" class="btn btn-outline-primary rounded-0">Shop Now</a></p>
             </div>  
           </div>
           <div class="col-lg-7 align-self-end text-center text-lg-right">
@@ -114,7 +116,7 @@
             <div class="site-block-cover-content">
             <h2 class="sub-title">#New Collection 2019</h2>
             <h1>Women's Wear</h1>
-            <p><a href="#" class="btn btn-black rounded-0">Shop Now</a></p>
+            <p><a href="shop.php?category_id=2" class="btn btn-black rounded-0">Shop Now</a></p>
             </div>
           </div>
           <div class="col-lg-8 order-1 align-self-end">
@@ -132,7 +134,7 @@
             <div class="site-block-cover-content">
             <h2 class="sub-title">#New Collection 2019</h2>
             <h1>Men's Wear</h1>
-            <p><a href="#" class="btn btn-black rounded-0">Shop Now</a></p>
+            <p><a href="shop.php?category_id=1" class="btn btn-black rounded-0">Shop Now</a></p>
             </div>
           </div>
           <div class="col-lg-6 order-1 align-self-end">
@@ -160,7 +162,7 @@
               <div class="col-md-6 col-lg-4">
                 <ul class="list-unstyled">
                   <li><a href="#">Sell online</a></li>
-                  <li><a href="./cart.html">Shopping cart</a></li>
+                  <li><a href="./cart.php">Shopping cart</a></li>
                 </ul>
               </div>
             </div>

@@ -213,6 +213,9 @@ jQuery(document).ready(function($) {
 			e.preventDefault();
 			searchWrap.removeClass('active');
 		})
+		$('.search-form').on('submit',function(){
+
+		});
 	};
 	searchShow();
 

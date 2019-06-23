@@ -1,3 +1,4 @@
+<? include './DBConnection.php' ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,21 +53,19 @@
                   <li class="has-children active">
                     <a href="#">Categories</a>
                     <ul class="dropdown">
-                      <li><a href="#">Men</a></li>
-                      <li><a href="#">Women</a></li>
-                      <li><a href="#">Children</a></li>
+                        <?php include './getCategories.php'?>
                     </ul>
                   </li>
                   
-                  <li><a href="shop.html">Shop</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="shop.php">Shop</a></li>
+                  <li><a href="contact.php">Contact</a></li>
                 </ul>
               </nav>
           </div>
           <div class="icons">
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
             <a href="#" class="icons-btn d-inline-block"><span class="icomoon icon-user"></span></a>
-            <a href="cart.html" class="icons-btn d-inline-block bag">
+            <a href="cart.php" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>

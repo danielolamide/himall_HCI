@@ -143,6 +143,35 @@
                 echo '<span>No products found in this category</span>';
               }
             }
+            elseif(isset($_GET['q'])){
+                $searchQuery = $_GET['q'];
+                $findSQL = "SELECT * FROM products WHERE product_description LIKE '%".$searchQuery."%'";
+                $findSQLRes = mysqli_query($connection->getConnection(),$findSQL);
+                if($findSQLRes->num_rows > 0){
+                  while($row = $findSQLRes->fetch_assoc()){
+                    $product_name = $row['product_name'];
+                    $poduct_description = $row['product_description'];
+                    $product_price = $row['product_price'];
+                    $product_image = $row['product_image'];
+                    $product_vendor = $row['vendor_id'];
+                    $product_id = $row['product_id'];
+                    echo '<div class="col-6 col-md-6 col-lg-6 border-top">
+                    <a href="./shop-single.php?product_id='.$row['product_id'].'" class="item">
+                    <img src="'.$row['product_image'].'" alt="Product Image" class="img-fluid">
+                    <div class="item-info">
+                        <h3>'.$row['product_name'].'</h3>
+                        <span class="collection d-block">'.$row['product_description'].'</span>
+                        <strong class="price">Ksh '.$row['product_price'].'</strong>
+                    </div>
+                    </a>
+                    </div>';
+
+                  }
+                }
+                else{
+                  echo '<span class ="text-dark">No '.$searchQuery.' found</span>';
+                }
+            }
             else{
               $select_products= "SELECT * FROM products LIMIT 6";
               $spRes = mysqli_query($connection->getConnection(),$select_products);

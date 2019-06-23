@@ -213,10 +213,13 @@ jQuery(document).ready(function($) {
 			e.preventDefault();
 			searchWrap.removeClass('active');
 		})
-		$('.search-form').on('submit',function(){
 
-		});
 	};
 	searchShow();
 
 });
+// function search(){
+// 	var action_url = 'http://localhost/himall/customer/shop.php?q='+ document.getElementByName('search-field').value;
+// 	var searchForm = document.getElementById('search-form');
+// 	searchForm.action = action_url;
+// }

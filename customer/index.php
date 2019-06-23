@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    
     
   </head>
   <body>
@@ -33,8 +35,9 @@
       <div class="search-wrap">
         <div class="container">
           <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post" id = 'search-form'>
-            <input type="text" class="form-control" placeholder="Search for products...">
+          <form id='search-form'  method="post" action= './getSearchQuery.php'>
+            <input name = 'search-field' type="text" class="form-control" placeholder="Search for products..." required>
+            <input type="submit" style="position: absolute; left: -9999px"/>
           </form>  
         </div>
       </div>
@@ -203,8 +206,8 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
+  <script src="js/main.js" async></script>
 
-  <script src="js/main.js"></script>
     
   </body>
 </html>

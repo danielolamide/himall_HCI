@@ -68,9 +68,10 @@
       <div class="search-wrap">
         <div class="container">
           <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search for products...">
-          </form>  
+          <form id='search-form'  method="post" action= './getSearchQuery.php'>
+            <input name = 'search-field' type="text" class="form-control" placeholder="Search for products..." required>
+            <input type="submit" style="position: absolute; left: -9999px"/>
+          </form>    
         </div>
       </div>
 
